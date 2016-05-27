@@ -10,11 +10,36 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var colorLabel: UILabel!
+    var currentColorString: String?
+
+    @IBOutlet weak var colorLabel: ColorLabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.setupUI()
+    }
+
+    private func setupUI() {
+
+        self.colorLabel.textColor = UIColor.whiteColor()
+        self.colorLabel.strokeColor = UIColor.blackColor()
+        self.colorLabel.strokeWidth = 8
+
+        self.colorLabel.text = "WHITE"
+    }
+
+    private func playerWon() {
+        self.colorLabelDefault()
+        self.colorLabel.text = "YOU WIN!"
+    }
+
+    private func playerLost() {
+        self.colorLabelDefault()
+        self.colorLabel.text = "YOU LOSE"
+    }
+
+    private func colorLabelDefault() {
+        self.colorLabel.textColor = UIColor.whiteColor()
+        self.colorLabel.strokeColor = UIColor.blackColor()
     }
 }
-

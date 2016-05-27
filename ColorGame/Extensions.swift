@@ -11,17 +11,20 @@ import UIKit
 
 class ColorLabel: UILabel {
 
+    var strokeWidth: CGFloat = 10
+    var strokeColor = UIColor.whiteColor()
+
     override func drawTextInRect(rect: CGRect) {
-        
+
         let shadowOffset = self.shadowOffset
         let textColor = self.textColor
 
         let c = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(c, 1)
+        CGContextSetLineWidth(c, self.strokeWidth)
         CGContextSetLineJoin(c, CGLineJoin.Round)
 
         CGContextSetTextDrawingMode(c, CGTextDrawingMode.Stroke)
-        self.textColor = UIColor.whiteColor()
+        self.textColor = self.strokeColor
         super.drawTextInRect(rect)
 
         CGContextSetTextDrawingMode(c, CGTextDrawingMode.Fill)
@@ -30,5 +33,9 @@ class ColorLabel: UILabel {
         super.drawTextInRect(rect)
 
         self.shadowOffset = shadowOffset
+    }
+
+    func updateStroke() {
+        self.drawTextInRect(self.frame)
     }
 }
