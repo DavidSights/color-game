@@ -1,5 +1,5 @@
 //
-//  Extensions.swift
+//  ColorLabel.swift
 //  ColorGame
 //
 //  Created by David Seitz Jr on 5/26/16.
@@ -15,7 +15,7 @@ class ColorLabel: UILabel {
     var strokeColor = UIColor.whiteColor()
 
     override func drawTextInRect(rect: CGRect) {
-
+        
         let shadowOffset = self.shadowOffset
         let textColor = self.textColor
 
