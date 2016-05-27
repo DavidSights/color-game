@@ -11,7 +11,7 @@ import UIKit
 
 class ColorLabel: UILabel {
 
-    var strokeWidth: CGFloat = 10
+    var strokeThickness: CGFloat = 8
     var strokeColor = UIColor.whiteColor()
 
     override func drawTextInRect(rect: CGRect) {
@@ -20,7 +20,7 @@ class ColorLabel: UILabel {
         let textColor = self.textColor
 
         let c = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(c, self.strokeWidth)
+        CGContextSetLineWidth(c, self.strokeThickness)
         CGContextSetLineJoin(c, CGLineJoin.Round)
 
         CGContextSetTextDrawingMode(c, CGTextDrawingMode.Stroke)

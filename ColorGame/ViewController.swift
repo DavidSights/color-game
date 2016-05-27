@@ -31,7 +31,6 @@ class ViewController: UIViewController {
 
         self.colorLabel.textColor = UIColor.whiteColor()
         self.colorLabel.strokeColor = UIColor.blackColor()
-        self.colorLabel.strokeWidth = 8
 
         self.changeLabel(text: "RED", color: UIColor.whiteColor(), darkBackground: false)
         self.changeBackgroundColorTo(color: UIColor.redColor())
