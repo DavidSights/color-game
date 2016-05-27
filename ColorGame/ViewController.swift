@@ -10,14 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: Properties
+
     var currentColorString: String?
 
+    // MARK: IBOutlets
+
     @IBOutlet weak var colorLabel: ColorLabel!
+
+    // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
     }
+
+    // MARK: - Convenience Methods
 
     private func setupUI() {
 
@@ -25,7 +33,26 @@ class ViewController: UIViewController {
         self.colorLabel.strokeColor = UIColor.blackColor()
         self.colorLabel.strokeWidth = 8
 
-        self.colorLabel.text = "WHITE"
+        self.changeLabel(text: "RED", color: UIColor.whiteColor(), darkBackground: false)
+        self.changeBackgroundColorTo(color: UIColor.redColor())
+    }
+
+    private func changeBackgroundColorTo(color color: UIColor) {
+        self.view.backgroundColor = color
+    }
+
+    private func changeLabel(text text: String, color: UIColor, darkBackground: Bool) {
+
+        self.colorLabel.text = text
+        self.colorLabel.textColor = color
+
+        if darkBackground {
+            self.colorLabel.strokeColor = UIColor.whiteColor()
+            self.colorLabel.updateStroke()
+        } else {
+            self.colorLabel.strokeColor = UIColor.blackColor()
+            self.colorLabel.updateStroke()
+        }
     }
 
     private func playerWon() {
