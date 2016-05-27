@@ -8,6 +8,52 @@
 
 import UIKit
 
+enum GameColors: Int {
+
+    case red
+    case orange
+    case yellow
+    case green
+    case blue
+    case purple
+
+    func color() -> UIColor {
+
+        switch self {
+
+        case .red:
+            return UIColor.redColor()
+
+        case .orange:
+            return UIColor.orangeColor()
+
+        case .yellow:
+            return UIColor.orangeColor()
+
+        case .green:
+            return UIColor.greenColor()
+
+        case .blue:
+            return UIColor.blueColor()
+
+        case .purple:
+            return UIColor.purpleColor()
+        }
+    }
+
+    /// Returns the number of existing cases for GameColors enum.
+    static let count: Int = {
+
+        var max: Int = 0
+
+        while let _ = GameColors(rawValue: max) {
+            max += 1
+        }
+
+        return max
+    }()
+}
+
 class ViewController: UIViewController {
 
     // MARK: Properties
@@ -24,7 +70,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
-
         self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.userTapped))
         self.view.addGestureRecognizer(self.tapGestureRecognizer)
     }
