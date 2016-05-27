@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     // MARK: Properties
 
     var currentColorString: String?
+    var tapGestureRecognizer: UITapGestureRecognizer!
 
     // MARK: IBOutlets
 
@@ -23,6 +24,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+
+        self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.userTapped))
+        self.view.addGestureRecognizer(self.tapGestureRecognizer)
+    }
+
+    // MARK: - Gesture Recognizer
+
+    func userTapped() {
+        print("ViewController.userTapped(): User tapped.")
     }
 
     // MARK: - Convenience Methods
